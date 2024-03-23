@@ -2,11 +2,11 @@ import { Router } from 'express'
 import multer from 'multer'
 import multerConfig from '../src/config/multer'
 import middlewaresAuth from './app/middlewares/auth'
-import UserController from './app/controllers/UserController'
-import SessionController from './app/controllers/SessionController'
-import ProductController from './app/controllers/ProductController'
-import CategoryController from './app/controllers/CategoryController'
-import OrderController from './app/controllers/OrderController'
+import UserController from './app/controllers/UserController.js'
+import SessionController from './app/controllers/SessionController.js'
+import ProductController from './app/controllers/ProductController.js'
+import CategoryController from './app/controllers/CategoryController.js'
+import OrderController from './app/controllers/OrderController.js'
 
 const routes = new Router()
 
