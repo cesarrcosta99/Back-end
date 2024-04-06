@@ -12,8 +12,6 @@ const __dirname = dirname(__filename);
 
 const corsOptions={
   origin:'https://code-burguer-front-end-react.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos permitidos
   credentials:true,
 }
 
