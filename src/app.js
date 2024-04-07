@@ -10,10 +10,10 @@ import './database/index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const corsOptions={
-  origin:'https://code-burguer-front-end-react.vercel.app',
-  credentials:true,
-}
+const corsOptions = {
+  origin: 'https://code-burguer-front-end-react.vercel.app',
+  credentials: true,
+};
 
 class App {
   constructor() {
@@ -25,24 +25,17 @@ class App {
 
   middlewares() {
     this.app.use(express.json());
-    this.app.use(
-      '/product-file',
-      express.static(resolve(__dirname, '..', 'uploads')),
-    );
-    this.app.use(
-      '/category-file',
-      express.static(resolve(__dirname, '..', 'uploads')),
-    );
 
-    app.use('/product-file', (req, res, next) => {
+    // Configuração para permitir o acesso às imagens estáticas sem restrições de CORS
+    this.app.use('/product-file', (req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       next();
-  }, express.static('caminho/para/seu/diretório/de/uploads'));
-  
-  app.use('/category-file', (req, res, next) => {
+    }, express.static(resolve(__dirname, '..', 'uploads')));
+
+    this.app.use('/category-file', (req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       next();
-  }, express.static('caminho/para/seu/diretório/de/uploads'));
+    }, express.static(resolve(__dirname, '..', 'uploads')));
   }
 
   routes() {
