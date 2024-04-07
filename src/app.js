@@ -33,6 +33,16 @@ class App {
       '/category-file',
       express.static(resolve(__dirname, '..', 'uploads')),
     );
+
+    app.use('/product-file', (req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      next();
+  }, express.static('caminho/para/seu/diretório/de/uploads'));
+  
+  app.use('/category-file', (req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      next();
+  }, express.static('caminho/para/seu/diretório/de/uploads'));
   }
 
   routes() {
